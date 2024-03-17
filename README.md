@@ -19,3 +19,11 @@
 * Keep Business Logic in Helper Classes: Instead of writing all the business logic inside the trigger, write the logic in a separate class and call this class from the trigger.
 * Test Coverage: Always aim for a minimum of 75% test coverage to ensure the trigger works as expected.
 * Error Handling: Include proper error handling to display meaningful error messages to the end user.
+
+## There are several limitations of triggers in Salesforce:
+
+* Governor Limits: Salesforce enforces various limits on the number of database operations, the amount of CPU time, and the memory capacity that triggers can use.
+* Order of Execution: The order in which triggers are executed can’t be explicitly controlled.
+* Testing and Deployment: Triggers must have at least 75% test coverage in order to be deployed to a production environment.
+* Recursive Triggers: Avoiding recursive triggers can be complex. If the same trigger is fired continuously, you may run into infinite loops.
+* Complexity: Triggers can become complex, especially as more business logic is added. This can lead to difficult-to-maintain code.
