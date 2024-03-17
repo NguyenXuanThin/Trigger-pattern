@@ -1,4 +1,7 @@
 # Trigger handler pattern in Salesforce
+
+
+![screenshot](https://github.com/NguyenXuanThin/Trigger-pattern/blob/main/image.png)
 ## Advantage of Trigger Handler pattern
 
 * Apex Class that handles trigger logic
@@ -8,8 +11,6 @@
 * Allow for greater flexibility
 * Make code reusable
 * Unit tests are much easier
-
-![screenshot](https://github.com/NguyenXuanThin/Trigger-pattern/blob/main/image.png)
 
 ## Here are a few best practices for triggers in Salesforce:
 
