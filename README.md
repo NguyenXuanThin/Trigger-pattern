@@ -123,4 +123,4 @@ public with sharing class AccountActions
 * **Recursive Triggers:** Avoiding recursive triggers can be complex. If the same trigger is fired continuously, you may run into infinite loops.
 * **Complexity:** Triggers can become complex, especially as more business logic is added. This can lead to difficult-to-maintain code.
 ## Note:
-  This pattern can apply interface to implement method.
+  This pattern can apply interface to implement trigger method.
