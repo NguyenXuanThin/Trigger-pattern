@@ -1,4 +1,4 @@
-#1 Trigger Handler Pattern
+#Trigger handler pattern in Salesforce
 
 The Trigger Handler pattern is a best practice for managing Apex triggers in the Salesforce platform. This pattern helps ensure the trigger code is well-organized, efficient, and maintainable.
 
