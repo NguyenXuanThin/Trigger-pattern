@@ -2,7 +2,7 @@
 
 The Trigger Handler pattern is a best practice for managing Apex triggers in the Salesforce platform. This pattern helps ensure the trigger code is well-organized, efficient, and maintainable.
 
-# 1. One Trigger Per Object
+## 1. One Trigger Per Object
 ```java 
 trigger AccountTrigger on Account( after insert, after update, before insert, before update) {
     AccountTriggerHandler handler = new AccountTriggerHandler(Trigger.isExecuting, Trigger.size);
@@ -25,7 +25,7 @@ trigger AccountTrigger on Account( after insert, after update, before insert, be
     }
 }
 ```
-# 2. Trigger Handler Class
+## 2. Trigger Handler Class
 ```java 
 public with sharing class AccountTriggerHandler 
 {
@@ -85,7 +85,7 @@ public with sharing class AccountTriggerHandler
     }
 } 
 ```
-# 3. Trigger Helper Class
+## 3. Trigger Helper Class
 ```java 
 public with sharing class AccountActions 
 {
