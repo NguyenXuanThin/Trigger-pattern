@@ -4,15 +4,96 @@ The Trigger Handler pattern is a best practice for managing Apex triggers in the
 
 # 1. One Trigger Per Object
 ```java 
-
+trigger AccountTrigger on Account( after insert, after update, before insert, before update) {
+    AccountTriggerHandler handler = new AccountTriggerHandler(Trigger.isExecuting, Trigger.size);
+    
+    if( Trigger.isInsert ){
+        if(Trigger.isBefore) {
+            handler.OnBeforeInsert(trigger.New);
+        }
+        else {
+            handler.OnAfterInsert(trigger.New);
+        }
+    }
+    else if ( Trigger.isUpdate ) {
+        if(Trigger.isBefore){
+            handler.OnBeforeUpdate(trigger.New ,trigger.Old,Trigger.NewMap,Trigger.OldMap);
+        }
+        else{
+            handler.OnAfterUpdate(trigger.New ,trigger.Old,Trigger.NewMap,Trigger.OldMap);
+        }
+    }
+}
 ```
-
+# 2. Trigger Handler Class
 ```java 
+public with sharing class AccountTriggerHandler 
+{
+    private boolean m_isExecuting = false;
+    private integer BatchSize = 0;
+    public static boolean IsFromBachJob ;
+    public static boolean isFromUploadAPI=false;
+    
+    public AccountTriggerHandler(boolean isExecuting, integer size)
+    {
+        m_isExecuting = isExecuting;
+        BatchSize = size;
+    }
+            
 
+    public void OnBeforeInsert(List<Account> newAccount)
+    {
+        system.debug('Account Trigger On Before Insert');
+    }
+    public void OnAfterInsert(List<Account> newAccount)
+    {
+        system.debug('Account Trigger On After Insert');
+    }
+    public void OnAfterUpdate( List<Account> newAccount, List<Account> oldAccount, Map<ID, Account> newAccountMap , Map<ID, Account> oldAccountMap )
+    {
+        system.debug('Account Trigger On After Update ');
+        AccountActions.updateContact (newAccount);
+    }
+    public void OnBeforeUpdate( List<Account> newAccount, List<Account> oldAccount, Map<ID, Account> newAccountMap , Map<ID, Account> oldAccountMap )
+    {
+        system.debug('Account Trigger On Before Update ');
+    }
+
+    @future 
+    public static void OnAfterUpdateAsync(Set<ID> newAccountIDs)
+    {
+
+    }      
+    public boolean IsTriggerContext
+    {
+        get{ return m_isExecuting;}
+    }
+    
+    public boolean IsVisualforcePageContext
+    {
+        get{ return !IsTriggerContext;}
+    }
+    
+    public boolean IsWebServiceContext
+    {
+        get{ return !IsTriggerContext;}
+    }
+    
+    public boolean IsExecuteAnonymousContext
+    {
+        get{ return !IsTriggerContext;}
+    }
+} 
 ```
-
+# 3. Trigger Helper Class
 ```java 
-
+public with sharing class AccountActions 
+{
+    public static void updateContact ( List<Account> newAccount)
+    {
+        // Add your logic here
+    }
+}
 ```
 ![screenshot](https://github.com/NguyenXuanThin/Trigger-pattern/blob/main/image.png)
 ## Advantage of Trigger Handler pattern
