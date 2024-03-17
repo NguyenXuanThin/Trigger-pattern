@@ -1,3 +1,4 @@
+## Trigger handler pattern in Salesforce
 # Advantage of Trigger Handler pattern
 
 * Apex Class that handles trigger logic
