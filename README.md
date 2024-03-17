@@ -1,7 +1,6 @@
-# Trigger handler pattern in Salesforce
+#1 Trigger Handler Pattern
 
 The Trigger Handler pattern is a best practice for managing Apex triggers in the Salesforce platform. This pattern helps ensure the trigger code is well-organized, efficient, and maintainable.
-
 
 ![screenshot](https://github.com/NguyenXuanThin/Trigger-pattern/blob/main/image.png)
 ## Advantage of Trigger Handler pattern
@@ -30,3 +29,5 @@ The Trigger Handler pattern is a best practice for managing Apex triggers in the
 * **Testing and Deployment:** Triggers must have at least 75% test coverage in order to be deployed to a production environment.
 * **Recursive Triggers:** Avoiding recursive triggers can be complex. If the same trigger is fired continuously, you may run into infinite loops.
 * **Complexity:** Triggers can become complex, especially as more business logic is added. This can lead to difficult-to-maintain code.
+## Note:
+  This pattern can aplly interface to implement method.
