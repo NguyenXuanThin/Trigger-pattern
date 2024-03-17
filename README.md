@@ -8,5 +8,4 @@
 * Make code reusable
 * Unit tests are much easier
 
-![Alt text]([image link](https://github.com/NguyenXuanThin/Trigger-pattern/blob/main/image.png)https://github.com/NguyenXuanThin/Trigger-pattern/blob/main/image.png)
-
+![screenshot](https://github.com/NguyenXuanThin/Trigger-pattern/blob/main/image.png)
